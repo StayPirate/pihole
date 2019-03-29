@@ -1,0 +1,7 @@
+[Unit]
+Description=Refresh images and update containers
+
+[Service]
+Type=oneshot
+
+ExecStart=/bin/systemctl reload-or-restart docker-compose@%I.service
