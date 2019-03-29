@@ -3,8 +3,10 @@ version: "2"
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
   pihole:
+    build: ./
+    image: pihole:local
     container_name: pihole
-    image: pihole/pihole:latest
+
     env_file: .env
     # Volumes store your data between container upgrades
     volumes:
