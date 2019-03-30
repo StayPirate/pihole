@@ -1,6 +1,6 @@
 ### Customized Pi-Hole image
 Differences with the [`pihole/pihole`](https://hub.docker.com/r/pihole/pihole) official image are:
- - Built-in custom [domain names](99-custom_domains.conf).
+ - Custom [domain names](99-custom_domains.conf).
  - Network **VLAN** configuration. 
  - Auto-Update via systemd.
 ---
@@ -20,5 +20,5 @@ This method changes the file `99-custom_domains.conf` inside the created contain
 
 Other options are logging into the container by spawning a shell, edit the file from there, then restart the dns service. But you will need to install a text editor since there are not. The image is based on [`scratch`](https://hub.docker.com/_/scratch). Or, if you have root access on the host system, you can cd into the `etc-dnsmasq.d` docker volume and edit the file from there, then restart the dns service. 
 
-### Container Auto Update
+### Auto Update Container
 To configure container's autoupdate follow the instruction in the [`/systemd`](/systemd) subdirectory.
