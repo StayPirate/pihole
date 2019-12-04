@@ -11,7 +11,7 @@ services:
     # Volumes store your data between container upgrades
     volumes:
        - 'etc-pihole:/etc/pihole/'
-       - 'etc-dnsmasq.d:/etc/dnsmasq.d/'
+    #  - 'etc-dnsmasq.d:/etc/dnsmasq.d/'
     networks:
       pihole_vlan:
         aliases:           
