@@ -3,28 +3,25 @@ version: "2"
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
   pihole:
-    build: ./
-    image: pihole:local
+    image: pihole/pihole:latest
     container_name: pihole
 
     env_file: .env
-    # Volumes store your data between container upgrades
     volumes:
        - 'etc-pihole:/etc/pihole/'
-    #  - 'etc-dnsmasq.d:/etc/dnsmasq.d/'
+       - './99-custom_domains.conf:/etc/dnsmasq.d/99-custom_domains.conf'
     networks:
       pihole_vlan:
-        aliases:           
+        aliases:
           - pihole
         ipv4_address: 172.16.61.2
     dns:
       - 127.0.0.1
       - 1.1.1.1
-    restart: always
+    restart: unless-stopped
     
 volumes:
   etc-pihole:
-  etc-dnsmasq.d:
     
 networks:
   pihole_vlan:

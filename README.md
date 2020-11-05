@@ -8,6 +8,8 @@ Differences with the [`pihole/pihole`](https://hub.docker.com/r/pihole/pihole) o
 You can edit your custom domain names either in persistence or temporary way. The first way persists between rebuilds, while the temporary way just between container reboots.
 ##### Persistance (prefered way)
 Whenever you want to make changes to your custom domain names, you need to update [`99-custom_domains.conf`](99-custom_domains.conf), then rebuild the container with `docker-compose up -d --build`.
+##### Environment variable
+Rename `.env.example` to `.env` and configure it according to your preferences.
 ##### Temporary
 This method changes the file `99-custom_domains.conf` inside the created container, hence all the changes will be lost together with the container deletion.
  - First of all copy the file from the container to the local host:
